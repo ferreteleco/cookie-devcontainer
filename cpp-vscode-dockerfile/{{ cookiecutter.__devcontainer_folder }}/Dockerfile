@@ -1,32 +1,17 @@
-# Dockerfile
-#
-# Maintainer Andrés Ferreiro González (aferreiro@gradiant.org)
-#
-# Created @ Tuesday, 25th January 2022 1:27:22 pm
-# Copyright (c) 2022 GRADIANT
-# All Rights Reserved
+# See here for image contents: https://github.com/microsoft/vscode-dev-containers/tree/v0.183.0/containers/cpp/.devcontainer/base.Dockerfile
 
-FROM {{ cookiecutter.base_image }}
+# [Choice] Debian / Ubuntu version: debian-10, debian-9, ubuntu-20.04, ubuntu-18.04
+ARG VARIANT="buster"
+FROM mcr.microsoft.com/vscode/devcontainers/cpp:0-${VARIANT}
 
-ARG USERNAME="vscode"
-ARG USER_UID="1000"
-ARG USER_GID=${USER_UID}
+WORKDIR /home/vscode
 
-# Create the user
-RUN groupadd --gid ${USER_GID} ${USERNAME} \
-  && useradd --uid ${USER_UID} --gid ${USER_GID} -m ${USERNAME} \
-  #
-  # [Optional] Add sudo support. Omit if you don't need to install software after connecting.
-  && apt-get update \
-  && apt-get install -y -qq apt-utils build-essential sudo \
-  && echo ${USERNAME} ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/${USERNAME} \
-  && chmod 0440 /etc/sudoers.d/${USERNAME}
-
-# Install dev dependencies
 COPY scripts scripts
-RUN apt-get update -qq && export DEBIAN_FRONTEND=noninteractive && apt-get upgrade -y -qq \
-  && apt-get install -y -qq sudo git curl wget htop nano python3 zsh bat cmake \
-  && sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" \
+
+# avoid warnings by switching to noninteractive
+RUN export DEBIAN_FRONTEND=noninteractive && sudo apt-get update -qq && sudo apt-get upgrade -y -qq \
+  && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git /home/vscode/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting \
+  && git clone https://github.com/zsh-users/zsh-autosuggestions /home/vscode/.oh-my-zsh/custom/plugins/zsh-autosuggestions \
   && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git /root/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting \
   && git clone https://github.com/zsh-users/zsh-autosuggestions /root/.oh-my-zsh/custom/plugins/zsh-autosuggestions \
   && cd scripts \
@@ -71,22 +56,11 @@ RUN apt-get update -qq && export DEBIAN_FRONTEND=noninteractive && apt-get upgra
   && rm -rf /var/lib/apt/lists/* \
   && rm -rf scripts
 
+COPY conf/.zshrc /home/vscode
+COPY conf/custom.zsh-theme /home/vscode/.oh-my-zsh/custom/themes
+
 COPY conf/.zshrc /root
 COPY conf/custom.zsh-theme /root/.oh-my-zsh/custom/themes
 
-# Configure ZSH for non-root user
-WORKDIR /home/${USERNAME}
-USER ${USERNAME}
-
-RUN sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" \
-  && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git /home/${USERNAME}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting \
-  && git clone https://github.com/zsh-users/zsh-autosuggestions /home/${USERNAME}/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-
-COPY conf/.zshrc /home/${USERNAME}
-COPY conf/custom.zsh-theme /home/${USERNAME}/.oh-my-zsh/custom/themes
-
 # Set the default shell to bash rather than sh
 ENV SHELL /bin/zsh
-
-# Set root as default user
-USER root

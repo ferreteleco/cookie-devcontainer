@@ -31,10 +31,12 @@ again. In order to do so, simply specify template name as argument for cookiecut
 $ cookiecutter cookie-devcontainer --directory="<dir-name>"
 ```
 
+### C++ Dockerfile and related installation scripts (dir-name: cpp-vscode-dockerfile)
+
 ### C++ Dockerfile and related installation scripts (dir-name: cpp-dockerfile)
 
 This template is intended to be used in VSCode remote container development for C++. It builds a new
-image based on the contents of the provided dockerfile.
+image based on the contents of the provided dockerfile (based on a generic ubuntu image).
 
 It optionally installs gcc/g++ v10 and some useful utilities, namely:
 
@@ -46,7 +48,6 @@ It optionally installs gcc/g++ v10 and some useful utilities, namely:
     - Geographiclib: https://geographiclib.sourceforge.io/
     - PROJ: https://proj.org/
     - GDAL: https://github.com/OSGeo/gdal
-    - LDPC SIMD: https://sdrmaker.space/activity/ & https://gitlab.com/librespacefoundation/sdrmakerspace/ldpc_simd
     - PyBind11: https://github.com/pybind/pybind11
 
 - Testing deps:
@@ -77,7 +78,6 @@ you will be prompted to fill in the following values:
 - **add_geographiclib_install_script**: flag that controls the inclusion of an geographiclib installation script
 - **add_pybind11_install_script**: flag that controls the inclusion of an pybind11 installation script
 - **add_gdal_install_scripts**: flag that controls the inclusion of an GDAL installation scripts
-- **add_ldpc_simd_install_script**: flag that controls the inclusion of an LDPC SIMD installation script
 
 ### More docker images and configs TBD
 

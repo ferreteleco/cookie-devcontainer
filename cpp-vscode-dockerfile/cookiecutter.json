@@ -3,7 +3,6 @@
   "project_short_name": "PNA",
   "full_name": "Your Full Name",
   "email": "yourmail@mail.org",
-  "base_image": "ubuntu:focal",
   "add_gcc10_install_script": [
     "no",
     "yes"
