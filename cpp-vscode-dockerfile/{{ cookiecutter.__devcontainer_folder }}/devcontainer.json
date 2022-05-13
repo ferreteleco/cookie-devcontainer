@@ -127,7 +127,8 @@
 		"ms-vscode.hexeditor",
 		"nortakales.vs-qalc",
 		"luisfontes19.vscode-swissknife",
-		"qcz.text-power-tools"
+		"qcz.text-power-tools",
+		"SonarSource.sonarlint-vscode"
 	],
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
