@@ -6,7 +6,7 @@
 # This software is released under the MIT License.
 # https://opensource.org/licenses/MIT
 
-CATCH2=3.0.0-preview3
+CATCH2=3.0.1
 
 echo "---- Catch2 v${CATCH2} Installation Script ----"
 

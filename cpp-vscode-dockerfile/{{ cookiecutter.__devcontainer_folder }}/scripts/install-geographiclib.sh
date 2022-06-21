@@ -6,7 +6,7 @@
 # This software is released under the MIT License.
 # https://opensource.org/licenses/MIT
 
-GEOGRAPHICLIB_VERSION=1.52
+GEOGRAPHICLIB_VERSION=2.1
 
 echo "---- GeographicLib v${GEOGRAPHICLIB_VERSION} Installation Script ----"
 

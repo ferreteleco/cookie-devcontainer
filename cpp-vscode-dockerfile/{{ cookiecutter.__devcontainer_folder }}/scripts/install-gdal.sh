@@ -6,7 +6,7 @@
 # This software is released under the MIT License.
 # https://opensource.org/licenses/MIT
 
-GDAL_VERSION=3.4.1
+GDAL_VERSION=3.5.0
 
 echo "---- GDAL v${GDAL_VERSION} Installation Script ----"
 

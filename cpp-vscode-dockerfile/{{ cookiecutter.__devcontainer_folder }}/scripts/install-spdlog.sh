@@ -6,7 +6,7 @@
 # This software is released under the MIT License.
 # https://opensource.org/licenses/MIT
 
-SPDLOG=1.9.2
+SPDLOG=1.10.0
 echo "---- SPDLOG v${SPDLOG} Installation Script ----"
 if ! [ $(id -u) = 0 ]; then
     echo "The script need to be run as root." >&2

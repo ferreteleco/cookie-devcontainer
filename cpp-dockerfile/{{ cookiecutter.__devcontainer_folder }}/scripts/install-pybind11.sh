@@ -6,7 +6,7 @@
 # This software is released under the MIT License.
 # https://opensource.org/licenses/MIT
 
-PYBIND11_VERSION=2.9.1
+PYBIND11_VERSION=2.9.2
 echo "---- pybind11 v${PYBIND11_VERSION} Installation Script ----"
 
 if ! [ $(id -u) = 0 ]; then
