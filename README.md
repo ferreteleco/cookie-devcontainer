@@ -64,7 +64,8 @@ Variables allow to customize your project. After running one of the previous coo
 you will be prompted to fill in the following values:
 
 - **project_name**: Project's name
-- **project_short_name**: Some abbreviation of project's name (useful for include guards)
+- **project_short_name**: Acronym of the project. Defaults to the first letter of each word in
+  project_name, capitalized. It is recommended to maintain the default value.
 - **full_name**: Your full name
 - **email**: Your email
 - **add_gcc10_install_script**: flag that controls the inclusion of a gcc10 installation script

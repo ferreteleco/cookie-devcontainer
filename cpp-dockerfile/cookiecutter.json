@@ -1,6 +1,6 @@
 {
   "project_name": "Project Name",
-  "project_short_name": "PNA",
+  "project_short_name": "{%- for word in cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_').split('_') -%}{{ word[0].upper() }}{%- endfor -%}",
   "full_name": "Your Full Name",
   "email": "yourmail@mail.org",
   "base_image": "ubuntu:focal",
