@@ -18,6 +18,6 @@ else
 fi
 
 echo "---- Install openblas ----"
-apt-get install -y -qq libopenblas-dev
+apt-get install -y -qq --no-install-recommends libopenblas-dev
 echo "---- Install lapack ------"
-apt-get install -y -qq liblapack-dev
+apt-get install -y -qq --no-install-recommends liblapack-dev

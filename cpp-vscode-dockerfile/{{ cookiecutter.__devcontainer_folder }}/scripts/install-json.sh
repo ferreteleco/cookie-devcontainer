@@ -6,7 +6,7 @@
 # This software is released under the MIT License.
 # https://opensource.org/licenses/MIT
 
-JSON_VERSION=3.10.5
+JSON_VERSION=3.11.2
 
 echo "---- JSON for Modern C++ Installation Script ----"
 
@@ -29,7 +29,7 @@ echo " "
 echo " "
 echo "1. Downloading JSON for Modern C++ v${JSON_VERSION}"
 
-sudo -u $REAL_USER curl -o json-${JSON_VERSION}.tar.xz -L https://github.com/nlohmann/json/archive/v${JSON_VERSION}.tar.gz
+sudo -u $REAL_USER curl -o json-${JSON_VERSION}.tar.xz -L https://github.com/nlohmann/json/archive/refs/tags/v${JSON_VERSION}.tar.gz
 
 sudo -u $REAL_USER tar xvf json-${JSON_VERSION}.tar.xz
 

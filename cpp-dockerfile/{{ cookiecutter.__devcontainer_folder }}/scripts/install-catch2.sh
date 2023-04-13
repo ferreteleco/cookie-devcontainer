@@ -6,7 +6,7 @@
 # This software is released under the MIT License.
 # https://opensource.org/licenses/MIT
 
-CATCH2=3.0.1
+CATCH2=3.3.2
 
 echo "---- Catch2 v${CATCH2} Installation Script ----"
 
@@ -29,8 +29,8 @@ echo " "
 echo " "
 echo "1. Downloading Catch2 v${CATCH2}"
 
-sudo -u $REAL_USER curl -o Catch2-${CATCH2}.tar.xz -L https://github.com/catchorg/Catch2/archive/v${CATCH2}.tar.gz
-sudo -u $REAL_USER tar xvf Catch2-${CATCH2}.tar.xz
+sudo -u $REAL_USER curl -o Catch2-${CATCH2}.tar.gz -L https://github.com/catchorg/Catch2/archive/refs/tags/v${CATCH2}.tar.gz
+sudo -u $REAL_USER tar xvf Catch2-${CATCH2}.tar.gz
 
 cd Catch2-${CATCH2}
 

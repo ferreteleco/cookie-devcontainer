@@ -6,7 +6,7 @@
 # This software is released under the MIT License.
 # https://opensource.org/licenses/MIT
 
-SPDLOG=1.10.0
+SPDLOG=1.11.0
 echo "---- SPDLOG v${SPDLOG} Installation Script ----"
 if ! [ $(id -u) = 0 ]; then
     echo "The script need to be run as root." >&2
@@ -23,7 +23,7 @@ echo " "
 echo " "
 echo " "
 echo "1. Downloading SPDLOG v${SPDLOG}"
-sudo -u $REAL_USER curl -o spdlog-${SPDLOG}.tar.gz -L https://codeload.github.com/gabime/spdlog/tar.gz/v${SPDLOG}
+sudo -u $REAL_USER curl -o spdlog-${SPDLOG}.tar.gz -L https://github.com/gabime/spdlog/archive/refs/tags/v${SPDLOG}.tar.gz
 sudo -u $REAL_USER tar xvf spdlog-${SPDLOG}.tar.gz
 cd spdlog-${SPDLOG}
 echo " "

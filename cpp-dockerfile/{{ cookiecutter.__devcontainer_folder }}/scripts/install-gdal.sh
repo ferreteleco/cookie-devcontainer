@@ -6,7 +6,7 @@
 # This software is released under the MIT License.
 # https://opensource.org/licenses/MIT
 
-GDAL_VERSION=3.5.0
+GDAL_VERSION=3.6.3
 
 echo "---- GDAL v${GDAL_VERSION} Installation Script ----"
 
@@ -34,7 +34,7 @@ echo " "
 echo " "
 echo " "
 echo "1. Downloading GDAL v${GDAL_VERSION}"
-sudo -u $REAL_USER curl -o gdal-${GDAL_VERSION}.tar.gz -L https://github.com/OSGeo/gdal/releases/download/v${GDAL_VERSION}/gdal-${GDAL_VERSION}.tar.gz
+sudo -u $REAL_USER curl -o gdal-${GDAL_VERSION}.tar.gz -L https://github.com/OSGeo/gdal/archive/refs/tags/v${GDAL_VERSION}.tar.gz
 sudo -u $REAL_USER tar xvf gdal-${GDAL_VERSION}.tar.gz
 
 cd gdal-${GDAL_VERSION}
@@ -44,23 +44,14 @@ echo " "
 echo " "
 echo "2. Building GDAL v${GDAL_VERSION}"
 
-./configure --with-python=python3 --with-proj=/usr/local --enable-shared
-make clean
-
-np=$(nproc)
-
-jobs=$((np / 2))
-
-jobs=$( (($jobs <= 1)) && echo "1" || echo "$jobs")
-
-make -j ${jobs}
+cmake -S . -B build
 
 echo " "
 echo " "
 echo " "
 echo "3. Installing GDAL v${GDAL_VERSION}"
 
-make install
+cmake --build build --target install
 ldconfig
 
 echo " "
