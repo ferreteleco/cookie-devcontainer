@@ -6,7 +6,7 @@
 # This software is released under the MIT License.
 # https://opensource.org/licenses/MIT
 
-PYBIND11_VERSION=2.9.2
+PYBIND11_VERSION=2.10.4
 echo "---- pybind11 v${PYBIND11_VERSION} Installation Script ----"
 
 if ! [ $(id -u) = 0 ]; then
@@ -36,7 +36,7 @@ echo " "
 echo " "
 echo "1. Downloading pybind11 v${PYBIND11_VERSION}"
 
-sudo -u $REAL_USER curl -o pybind11-${PYBIND11_VERSION}.tar.gz -L https://codeload.github.com/pybind/pybind11/tar.gz/v${PYBIND11_VERSION}
+sudo -u $REAL_USER curl -o pybind11-${PYBIND11_VERSION}.tar.gz -L https://github.com/pybind/pybind11/archive/refs/tags/v${PYBIND11_VERSION}.tar.gz
 sudo -u $REAL_USER tar xvf pybind11-${PYBIND11_VERSION}.tar.gz
 
 cd pybind11-${PYBIND11_VERSION}
@@ -66,7 +66,6 @@ echo " "
 echo "3. Installing pybind11 v${PYBIND11_VERSION}"
 
 make install
-
 ldconfig
 
 echo " "

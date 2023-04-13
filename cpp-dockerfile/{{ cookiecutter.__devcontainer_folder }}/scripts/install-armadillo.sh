@@ -6,7 +6,7 @@
 # This software is released under the MIT License.
 # https://opensource.org/licenses/MIT
 
-ARMADILLO=11.2.0
+ARMADILLO=12.2.0
 echo "---- Armadillo v${ARMADILLO} Installation Script ----"
 
 if ! [ $(id -u) = 0 ]; then
